@@ -70,7 +70,7 @@ class DoFetchError extends Error {
   }
 }
 
-module.exports = { doFetch };
+module.exports = { doFetch, DoFetchError };
 
 
 /***/ }),
@@ -102,7 +102,7 @@ module.exports = { getDotted };
 /***/ 493:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const { doFetch } = __nccwpck_require__(867);
+const { doFetch, DoFetchError } = __nccwpck_require__(867);
 const core = __nccwpck_require__(186);
 
 async function tryFetch({
