@@ -22,8 +22,8 @@ inputs:
   expected-response-field:
     description: 'If set, this field must exist in the API response. Use dot notation for nested fields (e.g. "data.user.name")'
     required: false
-  expected-response-field-value:
-    description: 'If set, the field from "expected-response-field" must be this value. Nota that any value is converted to a string.'
+  expected-response-values:
+    description: 'If set, the field from "expected-response-field" must be one of the values in this array. Nota that any value is converted to a string.'
     required: false
   error-response-values:
     description: 'If set, and the field from "expected-response-field" has one of the values in this array, the action will fail. The values are coma separated.'

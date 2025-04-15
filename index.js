@@ -10,9 +10,9 @@ const { tryFetch } = require('./lib/try-fetch');
     let interval = parseInt(core.getInput('interval'));
     let expectedStatus = parseInt(core.getInput('expected-status'));
     let expectedResponseField = core.getInput('expected-response-field');
-    let expectedResponseFieldValue = core.getInput(
-      'expected-response-field-value'
-    );
+    let expectedResponseValues = core
+      .getInput('expected-response-values')
+      ?.split(',');
     let errorResponseValues = core
       .getInput('error-response-values')
       ?.split(',');
@@ -54,7 +54,7 @@ const { tryFetch } = require('./lib/try-fetch');
       headers,
       expectedStatus,
       expectedResponseField,
-      expectedResponseFieldValue,
+      expectedResponseValues,
       errorResponseValues,
     });
 
