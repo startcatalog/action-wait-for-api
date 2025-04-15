@@ -13,6 +13,9 @@ const { tryFetch } = require('./lib/try-fetch');
     let expectedResponseFieldValue = core.getInput(
       'expected-response-field-value'
     );
+    let errorResponseValues = core
+      .getInput('error-response-values')
+      ?.split(',');
 
     core.debug(`=== Waiting for API response to continue. ===`);
     core.debug(`URL: ${url}`);
@@ -25,6 +28,13 @@ const { tryFetch } = require('./lib/try-fetch');
       core.debug(
         `Response contains field "${expectedResponseField}" with value "${expectedResponseFieldValue}"`
       );
+      if (errorResponseValues) {
+        core.debug(
+          `Response field "${expectedResponseField}" should not have one of the following values: ${errorResponseValues.join(
+            ', '
+          )}`
+        );
+      }
     } else if (expectedResponseField) {
       core.debug(`Response contains field "${expectedResponseField}"`);
     }
@@ -45,6 +55,7 @@ const { tryFetch } = require('./lib/try-fetch');
       expectedStatus,
       expectedResponseField,
       expectedResponseFieldValue,
+      errorResponseValues,
     });
 
     core.debug('API request was successfull.');
