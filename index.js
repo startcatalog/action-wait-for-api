@@ -24,9 +24,9 @@ const { tryFetch } = require('./lib/try-fetch');
     core.debug('# Waiting for this response:');
     core.debug(`HTTP Status: ${expectedStatus}`);
 
-    if (expectedResponseField && expectedResponseFieldValue) {
+    if (expectedResponseField && expectedResponseValues) {
       core.debug(
-        `Response contains field "${expectedResponseField}" with value "${expectedResponseFieldValue}"`
+        `Response contains field "${expectedResponseField}" with value "${expectedResponseValues}"`
       );
       if (errorResponseValues) {
         core.debug(
