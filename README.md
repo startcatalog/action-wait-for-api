@@ -7,12 +7,12 @@ This can be useful to wait e.g. for a specific version of an API to deployed or 
 ## Example usage
 
 ```yml
-uses: mydea/action-wait-for-api@v1
+uses: startcatalog/action-wait-for-api@v2
 with:
-  url: "https://api.example.com/status"
-  expected-response-field: "version"
+  url: 'https://api.example.com/status'
+  expected-response-field: 'version'
   expected-response-field-value: ${{env.EXPECTED_API_VERSION}}
-```  
+```
 
 ## Inputs
 
@@ -61,4 +61,3 @@ If set, the `expected-response-field` must contain this value to continue. Note 
 ### `interval`
 
 **Required** The number of seconds to wait between each try to the API. Default `"10"`.
-
